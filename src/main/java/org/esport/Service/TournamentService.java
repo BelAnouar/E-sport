@@ -14,4 +14,5 @@ public interface TournamentService {
     List<Tournoi> getAllTounaments();
     Tournoi updateTounament(Tournoi Tounament);
     void deleteTounament(Integer id);
+    long calculerdureeEstimeeTournoi(int tournoiId);
 }

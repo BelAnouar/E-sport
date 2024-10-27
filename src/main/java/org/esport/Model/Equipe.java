@@ -43,4 +43,14 @@ public class Equipe {
         builder.append("])");
         return builder.toString();
     }
+
+    public void addJoueur(Joueur joueur) {
+        joueurs.add(joueur);
+        joueur.setEquipe(this);
+    }
+
+    public void removeJoueur(Joueur joueur) {
+        joueurs.remove(joueur);
+        joueur.setEquipe(null);
+    }
 }

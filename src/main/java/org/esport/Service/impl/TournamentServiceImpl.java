@@ -42,4 +42,9 @@ public class TournamentServiceImpl extends BaseService<Tournoi> implements Tourn
     public void deleteTounament(Integer id) {
 
     }
+
+    @Override
+    public long calculerdureeEstimeeTournoi(int tournoiId) {
+        return tournamentRepository.calculerdureeEstimeeTournoi(tournoiId);
+    }
 }

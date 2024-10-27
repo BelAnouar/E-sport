@@ -195,6 +195,9 @@ public class ConsoleMenu {
                 case 6:
                     removeTeamFromTournament();
                     break;
+                case 7:
+                    calculerdureeEstimeeTournoi();
+                    break;
                 case 0:
                     return;
                 default:
@@ -488,9 +491,12 @@ public class ConsoleMenu {
             if (optionalPlayer.isPresent()) {
                 Equipe team = optionalTeam.get();
                 Joueur player = optionalPlayer.get();
+                System.out.println(team);
+                System.out.println(player);
                 team.getJoueurs().add(player);
+                System.out.println(team);
                 teamService.updateTeam(team);
-                System.out.println("Player added to team successfully!");
+                System.out.println("Player added to tea successfully!");
             } else {
                 System.out.println("Player with ID " + playerId + " not found.");
             }
@@ -504,12 +510,25 @@ public class ConsoleMenu {
         Optional<Equipe> optionalTeam = teamService.findEquipeWithPlayers(teamId);
 
         if (optionalTeam.isPresent()) {
+            System.out.println(optionalTeam.get().getJoueurs().size());
             System.out.println(optionalTeam.get());
         } else {
             System.out.println("Team with ID " + teamId + " not found.");
         }
     }
 
+    private void   calculerdureeEstimeeTournoi(){
+        int tournamentId = readIntInput("Enter the ID of the tournament to add a team to: ");
+
+        long dureeEstimee = tournamentService.calculerdureeEstimeeTournoi(tournamentId);
+
+
+        long heures = dureeEstimee / 60;
+        long minutes = dureeEstimee % 60;
+
+        System.out.printf("Durée estimée du tournoi : %d heures et %d minutes%n", heures, minutes);
+
+    }
     private void viewAllTeams() {
         System.out.println("\n=== List All Teams ===");
         List<Equipe> teams = teamService.getAllTeams();

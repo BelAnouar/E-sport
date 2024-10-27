@@ -51,6 +51,10 @@
             <version>6.6.0.Final</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+
+
+
         <!-- Hibernate Validator -->
         <dependency>
             <groupId>org.hibernate</groupId>
