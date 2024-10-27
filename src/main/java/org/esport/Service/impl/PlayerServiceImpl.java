@@ -48,7 +48,7 @@ public class PlayerServiceImpl  extends BaseService<Joueur> implements PlayerSer
     @Override
     public void deletePlayer(Integer id) {
 
-        playerRepository.deleteById(id);
+
     }
 
     @Override

@@ -33,7 +33,7 @@ public class Tournoi {
     private LocalTime TempsCeremonie;
     @Enumerated(EnumType.STRING)
     private Statut statut;
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     @JoinColumn(name = "jeu_id")
     private  Jeu jeu;
     @ManyToMany(fetch = FetchType.EAGER)

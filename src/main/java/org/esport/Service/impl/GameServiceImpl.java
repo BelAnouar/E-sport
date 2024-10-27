@@ -28,7 +28,7 @@ public class GameServiceImpl extends BaseService<Jeu> implements GameService {
 
     @Override
     public void createGame(Jeu Game) {
-        save(Game);
+        gameRepository.save(Game);
     }
 
     @Override

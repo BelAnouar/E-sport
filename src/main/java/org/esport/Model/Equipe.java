@@ -11,7 +11,6 @@ import java.util.Set;
 
 @Getter
 @Setter
-@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -22,9 +21,26 @@ public class Equipe {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    @OneToMany(mappedBy = "equipe",fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "equipe", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE}, fetch = FetchType.EAGER)
     private List<Joueur> joueurs;
-    @ManyToMany(mappedBy = "equipes" ,fetch = FetchType.EAGER)
+    @ManyToMany(mappedBy = "equipes" , cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
     private Set<Tournoi> tournois;
     private String classement;
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("Equipe(id=").append(id)
+                .append(", name=").append(name)
+                .append(", classement=").append(classement)
+                .append(", joueurs=[");
+
+        for (Joueur joueur : joueurs) {
+            builder.append("\n  Joueur(id=").append(joueur.getId())
+                    .append(", age=").append(joueur.getAge()).append(")");
+        }
+
+        builder.append("])");
+        return builder.toString();
+    }
 }

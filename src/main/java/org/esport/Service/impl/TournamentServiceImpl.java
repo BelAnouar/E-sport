@@ -40,6 +40,6 @@ public class TournamentServiceImpl extends BaseService<Tournoi> implements Tourn
 
     @Override
     public void deleteTounament(Integer id) {
-           tournamentRepository.deleteById(id);
+
     }
 }

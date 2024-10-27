@@ -12,5 +12,6 @@ public interface TeamService {
     List<Equipe> getAllTeams();
     Equipe updateTeam(Equipe team);
     void deleteTeam(Integer id);
+    Optional<Equipe> findEquipeWithPlayers(int id);
 
 }

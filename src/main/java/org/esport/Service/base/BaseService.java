@@ -44,10 +44,10 @@ public abstract class BaseService<T> {
     }
 
     @Transactional
-    public void save(T entity) {
+    public T  save(T entity) {
         try {
 
-            repository.save(entity);
+           return repository.save(entity);
         } catch (ValidationException e) {
             throw e;
         } catch (Exception e) {
@@ -94,15 +94,7 @@ public abstract class BaseService<T> {
         }
     }
 
-    @Transactional(readOnly = true)
-    public long count() {
-        try {
-            return repository.count();
-        } catch (Exception e) {
-            LOGGER.error("Error counting entities", e);
-            throw new ServiceException("Error counting entities", e);
-        }
-    }
+
 
 
 }

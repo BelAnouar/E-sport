@@ -18,7 +18,7 @@ public class Joueur {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private int age;
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     @JoinColumn(name = "equipe_id")
     private Equipe equipe;
 }

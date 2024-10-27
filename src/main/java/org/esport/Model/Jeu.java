@@ -19,9 +19,9 @@ public class Jeu {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nom;
-    private String deficulte;
+    private int deficulte;
     @Column(name = "dureeMoyenne" )
     private LocalTime duree_moyenne_match;
-    @OneToMany( mappedBy = "jeu",fetch = FetchType.EAGER)
+    @OneToMany( mappedBy = "jeu", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE}, fetch = FetchType.EAGER)
     private List<Tournoi> tournoi;
 }

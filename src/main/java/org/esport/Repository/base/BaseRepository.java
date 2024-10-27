@@ -45,7 +45,12 @@ public abstract   class BaseRepository<T> implements GenericRepository<T, Intege
                 entity : entityManager.merge(entity));
     }
 
-
+   @Override
+   @Transactional
+   public void deleteById(Integer id) {
+        T entity = entityManager.find(entityClass, id);
+        entityManager.remove(entity);
+   }
 
     @Override
     public boolean existsById(Integer id) {
