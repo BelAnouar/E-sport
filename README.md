@@ -134,3 +134,6 @@ The following Spring annotations are not used:
 - ❌ @Autowired
 - ❌ @ComponentScan
 
+
+## Planification in Jira
+https://web-blog.atlassian.net/jira/software/projects/ES/boards/5/backlog
